@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>検索結果</h1> 
+
+       {% if search %}
+          {% for f in search: %}
+              <form action="/thread" name="{{ f }}"  method="post">
+              <input type="hidden" name="thread" value="{{ f }}">
+              <a href="javascript:{{ f }}.submit()">{{ f }}</a>
+         </form>
+         {% endfor %}
+       {% else %}
+         <p>該当する検索結果は見つかりませんでした</p>
+       {% endif %}
+{% endblock %}
+
+
